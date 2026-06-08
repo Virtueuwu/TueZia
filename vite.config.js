@@ -4,12 +4,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
+    // Use esbuild for minification to avoid adding terser as a dependency
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
