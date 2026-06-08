@@ -21,6 +21,7 @@ export default function Movies() {
   const [label, setLabel] = useState(savedQuery ? 'Results' : 'Trending Now')
   const [player, setPlayer] = useState(savedPlayer)
   const playerAnchorRef = useRef(null)
+  const debounceTimerRef = useRef(null)
 
   useEffect(() => {
     if (savedQuery) {

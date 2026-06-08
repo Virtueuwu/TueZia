@@ -26,6 +26,19 @@ export default function App() {
   function goTab(t) {
     setTab(t)
     sessionStorage.setItem('cs_tab', t)
+
+    // When switching to Movies or TV, clear any saved player/query state
+    if (t === 'movies') {
+      ['mv_query', 'mv_player'].forEach(k => sessionStorage.removeItem(k))
+      // force Movies to remount and reset state
+      setHomeKey(k => k + 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    if (t === 'tv') {
+      ['tv_query', 'tv_selected', 'tv_player'].forEach(k => sessionStorage.removeItem(k))
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   function goHome() {

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { addRecent } from '../lib/storage.js'
 import styles from './Player.module.css'
 
-export default function Player({ src, title, year, rating, overview, badge, onClose, item, type }) {
+function PlayerContent({ src, title, year, rating, overview, badge, onClose, item, type }) {
   const iframeRef = useRef(null)
 
   // Log to recently watched as soon as the player opens
@@ -33,6 +33,7 @@ export default function Player({ src, title, year, rating, overview, badge, onCl
         <iframe
           ref={iframeRef}
           src={src}
+          frameBorder="0"
           allowFullScreen
           allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
           title={title}
@@ -41,3 +42,5 @@ export default function Player({ src, title, year, rating, overview, badge, onCl
     </div>
   )
 }
+
+export default React.memo(PlayerContent)

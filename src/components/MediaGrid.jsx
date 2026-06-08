@@ -2,7 +2,7 @@ import React from 'react'
 import MediaCard from './MediaCard.jsx'
 import styles from './MediaGrid.module.css'
 
-export default function MediaGrid({ items, type, onSelect, selectedId, loading }) {
+function MediaGridContent({ items, type, onSelect, selectedId, loading }) {
   if (loading) {
     return (
       <div className={styles.grid}>
@@ -31,3 +31,5 @@ export default function MediaGrid({ items, type, onSelect, selectedId, loading }
     </div>
   )
 }
+
+export default React.memo(MediaGridContent)

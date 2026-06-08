@@ -4,11 +4,38 @@ export const EMBED_BASE = 'https://api.codespecters.com'
 export const IMG_BASE = 'https://image.tmdb.org/t/p/w300'
 export const IMG_BASE_LG = 'https://image.tmdb.org/t/p/w780'
 
+// API Response Cache (expires after 10 minutes)
+const apiCache = new Map()
+const CACHE_TTL = 10 * 60 * 1000
+
+function getCachedResponse(key) {
+  const cached = apiCache.get(key)
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return cached.data
+  }
+  apiCache.delete(key)
+  return null
+}
+
+function setCachedResponse(key, data) {
+  apiCache.set(key, { data, timestamp: Date.now() })
+}
+
 async function tmdbFetch(path) {
+  const cacheKey = `tmdb:${path}`
+  
+  // Return cached data if available
+  const cached = getCachedResponse(cacheKey)
+  if (cached) return cached
+  
   const sep = path.includes('?') ? '&' : '?'
   const res = await fetch(`https://api.themoviedb.org/3${path}${sep}api_key=${TMDB_KEY}`)
   if (!res.ok) throw new Error(`TMDB error: ${res.status}`)
-  return res.json()
+  const data = await res.json()
+  
+  // Cache the response
+  setCachedResponse(cacheKey, data)
+  return data
 }
 
 export const api = {

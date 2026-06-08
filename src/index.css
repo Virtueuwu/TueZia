@@ -27,9 +27,9 @@
   --bg-input: #331A22;
   --border: #4A2532;
   --border-hover: #75354A;
-  --text: #FDE8EC;
-  --text-muted: #D1B3BA;
-  --text-dim: #A8868E;
+  --text: #000000;
+  --text-muted: #333333;
+  --text-dim: #666666;
   --gold: #FF5E89;
   --gold-hover: #FF85A3;
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);

@@ -3,7 +3,7 @@ import { posterUrl, formatRating, getYear } from '../lib/api.js'
 import { toggleBookmark, isBookmarked } from '../lib/storage.js'
 import styles from './MediaCard.module.css'
 
-export default function MediaCard({ item, type = 'movie', onClick, selected }) {
+function MediaCardContent({ item, type = 'movie', onClick, selected }) {
   const resolvedType = item._type || type
   const title = resolvedType === 'movie' ? item.title : item.name
   const date = resolvedType === 'movie' ? item.release_date : item.first_air_date
@@ -25,7 +25,7 @@ export default function MediaCard({ item, type = 'movie', onClick, selected }) {
     >
       <div className={styles.poster}>
         {poster
-          ? <img src={poster} alt={title} loading="lazy" />
+          ? <img src={poster} alt={title} loading="lazy" decoding="async" />
           : <div className={styles.noPoster}>{title?.slice(0, 2)}</div>
         }
         <button
@@ -45,3 +45,5 @@ export default function MediaCard({ item, type = 'movie', onClick, selected }) {
     </div>
   )
 }
+
+export default React.memo(MediaCardContent)
