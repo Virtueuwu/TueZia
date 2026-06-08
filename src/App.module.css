@@ -1,0 +1,119 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+  height: 70px;
+  background: rgba(255, 245, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(253, 221, 230, 0.25);
+}
+
+.logo {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-family: var(--font);
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.logoAccent {
+  color: var(--gold); /* Raspberry pink */
+  background: linear-gradient(135deg, #FF5E89 0%, #FF2E63 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logoDot {
+  color: #FFAFCA;
+  margin: 0 4px;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(253, 221, 230, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 3px;
+  overflow: hidden;
+}
+
+.tab {
+  padding: 8px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  border-radius: 25px;
+  letter-spacing: 0.02em;
+  font-family: var(--font);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab:hover:not(.active) {
+  color: var(--text);
+  background: rgba(253, 221, 230, 0.5);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #FF5E89 0%, #E84C77 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 94, 137, 0.3);
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  background: rgba(255, 245, 247, 0.6);
+  padding: 2rem clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.footerText {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.footerLink {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: var(--gold-hover);
+  text-decoration: underline;
+}

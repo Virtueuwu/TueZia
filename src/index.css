@@ -1,0 +1,69 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #FFF5F7;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFBFB;
+  --border: #FDDDE6;
+  --border-hover: #FFAFCA;
+  --text: #3D2227;
+  --text-muted: #8E7479;
+  --text-dim: #C5B0B4;
+  --gold: #FF5E89; /* Branding primary accent */
+  --gold-hover: #E84C77;
+  --font: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --shadow-sm: 0 4px 12px rgba(253, 221, 230, 0.35);
+  --shadow-md: 0 8px 24px rgba(253, 221, 230, 0.55);
+  --shadow-lg: 0 16px 40px rgba(253, 221, 230, 0.75);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+input {
+  font-family: var(--font);
+}
+
+a {
+  font-family: var(--font);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+::selection {
+  background: rgba(255, 94, 137, 0.2);
+  color: var(--text);
+}

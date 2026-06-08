@@ -1,0 +1,117 @@
+.wrap {
+  margin-bottom: 2.5rem;
+  animation: fadeSlideIn 0.3s ease;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.meta {
+  margin-bottom: 1.25rem;
+}
+
+.metaTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.closeBtn {
+  background: rgba(253, 221, 230, 0.2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.closeBtn:hover {
+  color: var(--gold);
+  border-color: var(--border-hover);
+  background: rgba(253, 221, 230, 0.6);
+  transform: scale(1.05);
+}
+
+.pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.pill {
+  padding: 4px 14px;
+  background: rgba(253, 221, 230, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.gold {
+  border-color: rgba(255, 94, 137, 0.3);
+  color: var(--gold);
+  background: rgba(255, 94, 137, 0.08);
+}
+
+.badge {
+  border-color: rgba(255, 94, 137, 0.2);
+  color: var(--gold);
+  background: rgba(255, 94, 137, 0.05);
+}
+
+.overview {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 800px;
+}
+
+.playerBox {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.playerBox iframe {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 50vw, 560px);
+  border: none;
+}
+
+@media (max-width: 480px) {
+  .playerBox iframe {
+    height: 220px;
+  }
+}
