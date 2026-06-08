@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { addRecent } from '../lib/storage.js'
 import styles from './Player.module.css'
 
-export default function Player({ src, title, year, rating, overview, badge, onClose }) {
+export default function Player({ src, title, year, rating, overview, badge, onClose, item, type }) {
+  const iframeRef = useRef(null)
+
+  // Log to recently watched as soon as the player opens
+  useEffect(() => {
+    if (!item) return
+    addRecent(item, type || item._type || 'movie', badge || '')
+  }, [src])
+
   if (!src) return null
 
   return (
@@ -22,6 +31,7 @@ export default function Player({ src, title, year, rating, overview, badge, onCl
       </div>
       <div className={styles.playerBox}>
         <iframe
+          ref={iframeRef}
           src={src}
           allowFullScreen
           allow="autoplay; encrypted-media; fullscreen; picture-in-picture"

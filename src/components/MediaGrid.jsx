@@ -23,7 +23,7 @@ export default function MediaGrid({ items, type, onSelect, selectedId, loading }
         <MediaCard
           key={item.id}
           item={item}
-          type={type}
+          type={item._type || type}
           onClick={onSelect}
           selected={item.id === selectedId}
         />

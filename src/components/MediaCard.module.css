@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .poster img {
@@ -83,4 +84,38 @@
   color: var(--text-muted);
   margin-top: 4px;
   font-weight: 500;
+}
+
+/* Bookmark button */
+.bookmarkBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s, background 0.2s;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.card:hover .bookmarkBtn {
+  opacity: 1;
+}
+
+.bookmarkBtn.bookmarked {
+  opacity: 1;
+  background: rgba(255, 94, 137, 0.9);
+}
+
+.bookmarkBtn:hover {
+  transform: scale(1.15);
 }

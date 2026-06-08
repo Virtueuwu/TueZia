@@ -18,7 +18,6 @@ export default function TV() {
   const playerAnchorRef = useRef(null)
   const didRestore = useRef(false)
 
-  // Load trending or restore last search
   useEffect(() => {
     const savedQuery = hydrate('tv_query') || ''
     if (savedQuery) {
@@ -32,7 +31,6 @@ export default function TV() {
     }
   }, [])
 
-  // If user had a show selected + episode playing on last visit, restore it
   useEffect(() => {
     if (didRestore.current) return
     const savedPlayer = hydrate('tv_player')
@@ -67,14 +65,17 @@ export default function TV() {
 
   function handlePlay(season, episode) {
     if (!selected) return
+    const badge = `S${season} · E${episode}`
     const p = {
       src: tvEmbedUrl(selected.id, season, episode),
       title: selected.name,
       year: getYear(selected.first_air_date),
       rating: formatRating(selected.vote_average),
       overview: selected.overview?.slice(0, 220),
-      badge: `S${season} · E${episode}`,
+      badge,
       selectedId: selected.id,
+      item: selected,
+      type: 'tv',
     }
     setPlayer(p)
     persist('tv_player', p)

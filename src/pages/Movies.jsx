@@ -55,6 +55,8 @@ export default function Movies() {
       rating: formatRating(item.vote_average),
       overview: item.overview?.slice(0, 220),
       selectedId: item.id,
+      item,
+      type: 'movie',
     }
     setPlayer(p)
     persist('mv_player', p)

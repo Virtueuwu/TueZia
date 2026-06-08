@@ -21,6 +21,23 @@
   --shadow-lg: 0 16px 40px rgba(253, 221, 230, 0.75);
 }
 
+[data-theme="dark"] {
+  --bg: #1A0B11;
+  --bg-card: #2B141C;
+  --bg-input: #331A22;
+  --border: #4A2532;
+  --border-hover: #75354A;
+  --text: #FDE8EC;
+  --text-muted: #D1B3BA;
+  --text-dim: #A8868E;
+  --gold: #FF5E89;
+  --gold-hover: #FF85A3;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.8);
+  --header-bg-rgb: 26, 11, 17;
+}
+
 html {
   scroll-behavior: smooth;
 }
